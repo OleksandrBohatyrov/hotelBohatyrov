@@ -1,4 +1,4 @@
---33 funkts. loomine
+--32 funkts. loomine
 CREATE FUNCTION fn_ILTVF_GetEmployees()
 returns table  
 as 
@@ -26,7 +26,7 @@ SELECT * FROM dbo.dn_MSTVF_GetEmployees();
 
 Update fn_MSTVF_GetEmployees() set FirstName='Sam1' Where EmployeeKey = 1
 
-
+--33 funktsionid
 CREATE FUNCTION fn_GetEmployeeNameById2(@Id int)
 RETURNS nvarchar(20)
 AS
