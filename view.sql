@@ -1,3 +1,4 @@
+
 --39 fail
 
 CREATE table tblEmployee
@@ -50,12 +51,16 @@ join tblDepartment
 on tblEmployee.DepartmentId = tblDepartment.DeptId
 where tblDepartment.DeptName = 'IT'
 
+select * from vWITDepartment_Employees
+
 Create View vWEmployeesNonConfidentialData
 as
 Select Id, Name, Salary, Gender, DeptName
 from tblEmployee
 join tblDepartment
 on tblEmployee.DepartmentId = tblDepartment.DeptId
+
+select * from vWEmployeesNonConfidentialData
 
 
 Create View vWEmployeesCountByDepartment
@@ -65,6 +70,7 @@ from tblEmployee
 join tblDepartment
 on tblEmployee.DepartmentId = tblDepartment.DeptId
 Group By DeptName
+select * from vWEmployeesCountByDepartment
 
 
 --40 fail
@@ -80,8 +86,10 @@ select * from vWEployeesDataExceptSalary
 UPDATE vWEployeesDataExceptSalary
 set name = 'Mikey' where Id = 2
 
+select * from vWEployeesDataExceptSalary
 delete from vWEployeesDataExceptSalary where Id = 2
 insert into vWEployeesDataExceptSalary values(2, 'Mikey', 'Male', 2)
+select * from vWEployeesDataExceptSalary
 
 Create View vWEmployeesDetailsByDepartment
 as
@@ -110,6 +118,7 @@ insert into tblProduct Values(2, 'Pens', 14)
 insert into tblProduct Values(3, 'Pencils', 11)
 insert into tblProduct Values(4, 'Clips', 10)
 
+select * from tblProduct
 
 create table tblProductSales
 (
@@ -127,6 +136,7 @@ Insert into tblProductSales values(1, 11)
 Insert into tblProductSales values(2, 12)
 Insert into tblProductSales values(1, 14)
 
+select * from tblProductSales
 ﻿
 
 Create view vWTotalSalesByProduct
@@ -140,11 +150,11 @@ join dbo.tblProduct
 on dbo.tblProduct.ProductId = dbo.tblProductSales.ProductId
 group by Name
 
+select * from vWTotalSalesByProduct
 ﻿
 Create Unique Clustered Index UIX_vWTotalSalesByProduct_Name
 on vWTotalSalesByProduct(Name)
 
-Select * from vWTotalSalesByProduct
 
 
 --42 fail
@@ -195,6 +205,8 @@ Insert into ##TestTempTable values(101, 'Martin', 'Male')
 Insert into ##TestTempTable values(102, 'Joe', 'Female')
 Insert into ##TestTempTable values(103, 'Pam', 'Female')
 Insert into ##TestTempTable values(104, 'James', 'Male')
+
+select * from ##TestTempTable
 
 Create View vwOnTempTable
 as
