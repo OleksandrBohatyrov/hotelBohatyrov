@@ -6,8 +6,7 @@ On DimEmployee(FirstName)
 CREATE table [tblEmployee]
 (
 [Id] int Primary Key,
-[FirstName] nvarchar(50),
-[LastName] nvarchar(50),
+[Name] nvarchar(50),
 [Salary] int,
 [Gender] nvarchar(10),
 [City] nvarchar(50))
@@ -50,6 +49,7 @@ ALTER TABLE tblEmployee
 ADD CONSTRAINT UQ_tblEmployee_City 
 UNIQUE NONCLUSTERED (City)
 
+select * from tblEmployee
 
 EXECUTE SP_HELPCONSTRAINT tblEmployee
 
