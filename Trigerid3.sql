@@ -94,7 +94,7 @@ GO
 
 exec sp_settriggerorder
 @triggername = 'tr_DatabaseScopeTrigger',
-@order = 'none',
+@order = 'Last', --Võib olla First, Last, None
 @stmttype = 'CREATE_TABLE',
 @namespace='DATABASE'
 GO
